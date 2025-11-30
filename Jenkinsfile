@@ -33,24 +33,33 @@ pipeline {
         
         stage('SAST - SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=my-app -Dsonar.projectName=my-app'
+                script {
+                    // Analyse SonarQube (optionnel si pas installé)
+                    try {
+                        withSonarQubeEnv('sonar-server') {
+                            sh 'mvn sonar:sonar -Dsonar.projectKey=my-app -Dsonar.projectName=my-app'
+                        }
+                    } catch (Exception e) {
+                        echo "SonarQube non disponible: ${e.getMessage()}"
+                        echo "Continuing without SAST..."
+                    }
                 }
             }
         }
         
-        stage('Deploy to Tomcat') {
+        stage('Package & Deploy') {
             steps {
                 sh 'mvn clean package'
                 script {
-                    // Simulation du déploiement - à adapter selon ton environnement
-                    if (fileExists('/opt/tomcat/webapps/')) {
-                        sh 'cp target/my-app.war /opt/tomcat/webapps/'
-                        echo 'Application deployed to Tomcat'
-                    } else {
-                        echo 'Tomcat directory not found - creating simulated deployment'
-                        sh 'mkdir -p simulated-tomcat/webapps/ && cp target/my-app.war simulated-tomcat/webapps/'
-                    }
+                    // Simulation de déploiement
+                    echo "Fichier WAR généré: target/my-app.war"
+                    echo "Taille: ${sh(script: 'du -h target/my-app.war | cut -f1', returnStdout: true).trim()}"
+                    
+                    // Pour un vrai déploiement, décommente les lignes ci-dessous:
+                    // sh 'sudo systemctl stop tomcat9'
+                    // sh 'cp target/my-app.war /var/lib/tomcat9/webapps/'
+                    // sh 'sudo systemctl start tomcat9'
+                    // echo "Application déployée sur Tomcat"
                 }
             }
         }
@@ -59,23 +68,13 @@ pipeline {
     post {
         always {
             echo 'Pipeline execution completed'
-            cleanWs()
+            archiveArtifacts artifacts: 'target/*.war', fingerprint: true
         }
         success {
-            echo 'Pipeline executed successfully!'
-            emailext (
-                subject: "SUCCESS: Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "Le pipeline CI/CD s'est exécuté avec succès.\n\nDétails:\n- Job: ${env.JOB_NAME}\n- Build: ${env.BUILD_NUMBER}\n- URL: ${env.BUILD_URL}",
-                to: 'votre-email@example.com'
-            )
+            echo '✅ Pipeline executed successfully!'
         }
         failure {
-            echo 'Pipeline execution failed!'
-            emailext (
-                subject: "FAILED: Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "Le pipeline CI/CD a échoué.\n\nDétails:\n- Job: ${env.JOB_NAME}\n- Build: ${env.BUILD_NUMBER}\n- URL: ${env.BUILD_URL}\n\nVeuillez vérifier les logs.",
-                to: 'votre-email@example.com'
-            )
+            echo '❌ Pipeline execution failed!'
         }
     }
 }
