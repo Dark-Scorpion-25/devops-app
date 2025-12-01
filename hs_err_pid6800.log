@@ -1,6 +1,6 @@
 #
 # There is insufficient memory for the Java Runtime Environment to continue.
-# Native memory allocation (mmap) failed to map 983040 bytes. Error detail: G1 virtual space
+# Native memory allocation (mmap) failed to map 62914560 bytes. Error detail: G1 virtual space
 # Possible reasons:
 #   The system is out of physical RAM or swap space
 #   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
@@ -18,7 +18,7 @@
 #     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
 # This output file may be truncated or incomplete.
 #
-#  Out of Memory Error (os_windows.cpp:3554), pid=10808, tid=3920
+#  Out of Memory Error (os_windows.cpp:3554), pid=6800, tid=8496
 #
 # JRE version:  (25.0+37) (build )
 # Java VM: Java HotSpot(TM) 64-Bit Server VM (25+37-LTS-3491, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
@@ -27,16 +27,16 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: org.apache.maven.surefire.booter.ForkedBooter C:\Users\Admin\AppData\Local\Temp\surefire12064483853351175347 2025-12-01T00-23-17_977-jvmRun1 surefire-20251201002318233_1tmp surefire_0-20251201002318233_2tmp
+Command Line: -Dclassworlds.conf=C:\Program Files\apache-maven-3.9.11\bin\m2.conf -Dmaven.home=C:\Program Files\apache-maven-3.9.11 -Dlibrary.jansi.path=C:\Program Files\apache-maven-3.9.11\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\Admin\Desktop\devops\my-app org.codehaus.plexus.classworlds.launcher.Launcher clean package -DskipTest
 
 Host: Intel(R) Core(TM) i3-1005G1 CPU @ 1.20GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
-Time: Mon Dec  1 00:23:19 2025 GMT Standard Time elapsed time: 0.329658 seconds (0d 0h 0m 0s)
+Time: Mon Dec  1 13:15:55 2025 GMT Standard Time elapsed time: 0.026532 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x0000013721f4e7d0):  JavaThread "Unknown thread" [_thread_in_vm, id=3920, stack(0x0000001bb3800000,0x0000001bb3900000) (1024K)]
+Current thread (0x000001c56803d460):  JavaThread "Unknown thread" [_thread_in_vm, id=8496, stack(0x000000b6f5100000,0x000000b6f5200000) (1024K)]
 
-Stack: [0x0000001bb3800000,0x0000001bb3900000]
+Stack: [0x000000b6f5100000,0x000000b6f5200000]
 Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
 V  [jvm.dll+0x7a6a39]  (no source info available)
 V  [jvm.dll+0x7727ed]  (no source info available)
@@ -48,7 +48,7 @@ V  [jvm.dll+0x7a2c65]  (no source info available)
 V  [jvm.dll+0x796077]  (no source info available)
 V  [jvm.dll+0x3f4698]  (no source info available)
 V  [jvm.dll+0x3fc5b6]  (no source info available)
-V  [jvm.dll+0x3e8ca3]  (no source info available)
+V  [jvm.dll+0x3e8c8e]  (no source info available)
 V  [jvm.dll+0x3e8f48]  (no source info available)
 V  [jvm.dll+0x3c0045]  (no source info available)
 V  [jvm.dll+0x3c0cce]  (no source info available)
@@ -68,22 +68,22 @@ Lock stack of current Java thread (top to bottom):
 ---------------  P R O C E S S  ---------------
 
 Threads class SMR info:
-_java_thread_list=0x00007ffdad585308, length=0, elements={
+_java_thread_list=0x00007ffa27f15308, length=0, elements={
 }
 
 Java Threads: ( => current thread )
 Total: 0
 
 Other Threads:
-  0x00000137242ea9c0 WorkerThread "GC Thread#0"                     [id=10852, stack(0x0000001bb3900000,0x0000001bb3a00000) (1024K)]
-  0x00000137242f77b0 ConcurrentGCThread "G1 Main Marker"            [id=10984, stack(0x0000001bb3a00000,0x0000001bb3b00000) (1024K)]
-  0x00000137242fa360 WorkerThread "G1 Conc#0"                       [id=9288, stack(0x0000001bb3b00000,0x0000001bb3c00000) (1024K)]
+  0x000001c56a3eb7b0 WorkerThread "GC Thread#0"                     [id=7000, stack(0x000000b6f5200000,0x000000b6f5300000) (1024K)]
+  0x000001c56a3f7e00 ConcurrentGCThread "G1 Main Marker"            [id=3220, stack(0x000000b6f5300000,0x000000b6f5400000) (1024K)]
+  0x000001c56a3f9950 WorkerThread "G1 Conc#0"                       [id=3740, stack(0x000000b6f5400000,0x000000b6f5500000) (1024K)]
 
-[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffdacc64c2a]
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa275f4c2a]
 VM state: not at safepoint (not fully initialized)
 
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
-[0x00007ffdad609628] Heap_lock - owner thread: 0x0000013721f4e7d0
+[0x00007ffa27f99628] Heap_lock - owner thread: 0x000001c56803d460
 
 Heap address: 0x00000000c4000000, size: 960 MB, Compressed Oops mode: 32-bit
 
@@ -106,10 +106,10 @@ Heap:
 
 Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
 
-Card table byte_map: [0x000001373bb40000,0x000001373bd20000] _byte_map_base: 0x000001373b520000
+Card table byte_map: [0x000001c572e20000,0x000001c573000000] _byte_map_base: 0x000001c572800000
 
-Marking Bits: (CMBitMap*) 0x00000137242eb150
- Bits: [0x000001373bd20000, 0x000001373cc20000)
+Marking Bits: (CMBitMap*) 0x000001c56a3ebf40
+ Bits: [0x000001c573000000, 0x000001c573f00000)
 
 GC Heap Usage History (0 events):
 No events
@@ -118,7 +118,7 @@ Metaspace Usage History (0 events):
 No events
 
 Dll operation events (1 events):
-Event: 0.138 Loaded shared library C:\Program Files\Java\jdk-25\bin\java.dll
+Event: 0.007 Loaded shared library C:\Program Files\Java\jdk-25\bin\java.dll
 
 Deoptimization events (0 events):
 No events
@@ -149,42 +149,42 @@ No events
 
 
 Dynamic libraries:
-0x00007ff7b9430000 - 0x00007ff7b9440000 	C:\Program Files\Java\jdk-25\bin\java.exe
-0x00007ffdf1ef0000 - 0x00007ffdf20e8000 	C:\Windows\SYSTEM32\ntdll.dll
-0x00007ffdf0b10000 - 0x00007ffdf0bd2000 	C:\Windows\System32\KERNEL32.DLL
-0x00007ffdefc10000 - 0x00007ffdeff06000 	C:\Windows\System32\KERNELBASE.dll
-0x00007ffdef5b0000 - 0x00007ffdef6b0000 	C:\Windows\System32\ucrtbase.dll
-0x00007ffde4e50000 - 0x00007ffde4e67000 	C:\Program Files\Java\jdk-25\bin\jli.dll
-0x00007ffdf1bf0000 - 0x00007ffdf1d8d000 	C:\Windows\System32\USER32.dll
-0x00007ffdef700000 - 0x00007ffdef722000 	C:\Windows\System32\win32u.dll
-0x00007ffdf19c0000 - 0x00007ffdf19eb000 	C:\Windows\System32\GDI32.dll
-0x00007ffdef860000 - 0x00007ffdef979000 	C:\Windows\System32\gdi32full.dll
-0x00007ffdef7c0000 - 0x00007ffdef85d000 	C:\Windows\System32\msvcp_win.dll
-0x00007ffde4e30000 - 0x00007ffde4e4e000 	C:\Program Files\Java\jdk-25\bin\VCRUNTIME140.dll
-0x00007ffddde80000 - 0x00007ffdde11a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7\COMCTL32.dll
-0x00007ffdf19f0000 - 0x00007ffdf1a8e000 	C:\Windows\System32\msvcrt.dll
-0x00007ffdf13a0000 - 0x00007ffdf13cf000 	C:\Windows\System32\IMM32.DLL
-0x00007ffde4e20000 - 0x00007ffde4e2c000 	C:\Program Files\Java\jdk-25\bin\vcruntime140_1.dll
-0x00007ffdc8ff0000 - 0x00007ffdc907d000 	C:\Program Files\Java\jdk-25\bin\msvcp140.dll
-0x00007ffdac890000 - 0x00007ffdad6ef000 	C:\Program Files\Java\jdk-25\bin\server\jvm.dll
-0x00007ffdf1d90000 - 0x00007ffdf1e41000 	C:\Windows\System32\ADVAPI32.dll
-0x00007ffdf1430000 - 0x00007ffdf14cf000 	C:\Windows\System32\sechost.dll
-0x00007ffdeff10000 - 0x00007ffdf0033000 	C:\Windows\System32\RPCRT4.dll
-0x00007ffdef580000 - 0x00007ffdef5a7000 	C:\Windows\System32\bcrypt.dll
-0x00007ffdf1270000 - 0x00007ffdf12db000 	C:\Windows\System32\WS2_32.dll
-0x00007ffdef460000 - 0x00007ffdef4ab000 	C:\Windows\SYSTEM32\POWRPROF.dll
-0x00007ffddf6b0000 - 0x00007ffddf6d7000 	C:\Windows\SYSTEM32\WINMM.dll
-0x00007ffde7500000 - 0x00007ffde750a000 	C:\Windows\SYSTEM32\VERSION.dll
-0x00007ffdef3c0000 - 0x00007ffdef3d2000 	C:\Windows\SYSTEM32\UMPDC.dll
-0x00007ffdeddb0000 - 0x00007ffdeddc2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
-0x00007ffde4d30000 - 0x00007ffde4d3a000 	C:\Program Files\Java\jdk-25\bin\jimage.dll
-0x00007ffded290000 - 0x00007ffded491000 	C:\Windows\SYSTEM32\DBGHELP.DLL
-0x00007ffde1020000 - 0x00007ffde1054000 	C:\Windows\SYSTEM32\dbgcore.DLL
-0x00007ffdef730000 - 0x00007ffdef7b2000 	C:\Windows\System32\bcryptPrimitives.dll
-0x00007ffde0010000 - 0x00007ffde002f000 	C:\Program Files\Java\jdk-25\bin\java.dll
-0x00007ffdf0e40000 - 0x00007ffdf0f6b000 	C:\Windows\System32\ole32.dll
-0x00007ffdf07b0000 - 0x00007ffdf0b03000 	C:\Windows\System32\combase.dll
-0x00007ffdf0040000 - 0x00007ffdf07ae000 	C:\Windows\System32\SHELL32.dll
+0x00007ff6edcc0000 - 0x00007ff6edcd0000 	C:\Program Files\Java\jdk-25\bin\java.exe
+0x00007ffa619d0000 - 0x00007ffa61bc8000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffa611f0000 - 0x00007ffa612b2000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffa5f4b0000 - 0x00007ffa5f7a6000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffa5f8c0000 - 0x00007ffa5f9c0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffa559c0000 - 0x00007ffa559d7000 	C:\Program Files\Java\jdk-25\bin\jli.dll
+0x00007ffa52760000 - 0x00007ffa5277e000 	C:\Program Files\Java\jdk-25\bin\VCRUNTIME140.dll
+0x00007ffa60d30000 - 0x00007ffa60ecd000 	C:\Windows\System32\USER32.dll
+0x00007ffa5f210000 - 0x00007ffa5f232000 	C:\Windows\System32\win32u.dll
+0x00007ffa61960000 - 0x00007ffa6198b000 	C:\Windows\System32\GDI32.dll
+0x00007ffa5f2e0000 - 0x00007ffa5f3f9000 	C:\Windows\System32\gdi32full.dll
+0x00007ffa5f240000 - 0x00007ffa5f2dd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffa48020000 - 0x00007ffa482ba000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7\COMCTL32.dll
+0x00007ffa608c0000 - 0x00007ffa6095e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffa60bd0000 - 0x00007ffa60bff000 	C:\Windows\System32\IMM32.DLL
+0x00007ffa5a760000 - 0x00007ffa5a76c000 	C:\Program Files\Java\jdk-25\bin\vcruntime140_1.dll
+0x00007ffa41e60000 - 0x00007ffa41eed000 	C:\Program Files\Java\jdk-25\bin\msvcp140.dll
+0x00007ffa27220000 - 0x00007ffa2807f000 	C:\Program Files\Java\jdk-25\bin\server\jvm.dll
+0x00007ffa61030000 - 0x00007ffa610e1000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffa60f80000 - 0x00007ffa6101f000 	C:\Windows\System32\sechost.dll
+0x00007ffa60aa0000 - 0x00007ffa60bc3000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffa5f9c0000 - 0x00007ffa5f9e7000 	C:\Windows\System32\bcrypt.dll
+0x00007ffa600d0000 - 0x00007ffa6013b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffa5ef40000 - 0x00007ffa5ef8b000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffa57b90000 - 0x00007ffa57b9a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffa497d0000 - 0x00007ffa497f7000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffa5ef20000 - 0x00007ffa5ef32000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffa5d840000 - 0x00007ffa5d852000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffa5a000000 - 0x00007ffa5a00a000 	C:\Program Files\Java\jdk-25\bin\jimage.dll
+0x00007ffa5cd70000 - 0x00007ffa5cf71000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffa4a820000 - 0x00007ffa4a854000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffa5f7b0000 - 0x00007ffa5f832000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffa526a0000 - 0x00007ffa526bf000 	C:\Program Files\Java\jdk-25\bin\java.dll
+0x00007ffa60c00000 - 0x00007ffa60d2b000 	C:\Windows\System32\ole32.dll
+0x00007ffa615a0000 - 0x00007ffa618f3000 	C:\Windows\System32\combase.dll
+0x00007ffa60150000 - 0x00007ffa608be000 	C:\Windows\System32\SHELL32.dll
 
 JVMTI agents: none
 
@@ -192,8 +192,9 @@ dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
 symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-25\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7;C:\Program Files\Java\jdk-25\bin\server
 
 VM Arguments:
-java_command: org.apache.maven.surefire.booter.ForkedBooter C:\Users\Admin\AppData\Local\Temp\surefire12064483853351175347 2025-12-01T00-23-17_977-jvmRun1 surefire-20251201002318233_1tmp surefire_0-20251201002318233_2tmp
-java_class_path (initial): C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-booter\3.2.5\surefire-booter-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-api\3.2.5\surefire-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.2.5\surefire-logger-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.2.5\surefire-shared-utils-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.2.5\surefire-extensions-spi-3.2.5.jar;C:\Users\Admin\Desktop\devops\my-app\target\test-classes;C:\Users\Admin\Desktop\devops\my-app\target\classes;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\Admin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\Admin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\Admin\.m2\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;C:\Users\Admin\.m2\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-junit-platform\3.2.5\surefire-junit-platform-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\common-java5\3.2.5\common-java5-3.2.5.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-launcher\1.11.0\junit-platform-launcher-1.11.0.jar
+jvm_args: -Dclassworlds.conf=C:\Program Files\apache-maven-3.9.11\bin\m2.conf -Dmaven.home=C:\Program Files\apache-maven-3.9.11 -Dlibrary.jansi.path=C:\Program Files\apache-maven-3.9.11\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\Admin\Desktop\devops\my-app 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher clean package -DskipTest
+java_class_path (initial): C:\Program Files\apache-maven-3.9.11\boot\plexus-classworlds-2.9.0.jar
 Launcher Type: SUN_STANDARD
 
 [Global flags]
@@ -226,7 +227,6 @@ Release file:
 <release file has not been read>
 Environment Variables:
 JAVA_HOME=C:\Program Files\Java\jdk-25
-CLASSPATH=C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-booter\3.2.5\surefire-booter-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-api\3.2.5\surefire-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.2.5\surefire-logger-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.2.5\surefire-shared-utils-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.2.5\surefire-extensions-spi-3.2.5.jar;C:\Users\Admin\Desktop\devops\my-app\target\test-classes;C:\Users\Admin\Desktop\devops\my-app\target\classes;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\Admin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\Admin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\Admin\.m2\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;C:\Users\Admin\.m2\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-junit-platform\3.2.5\surefire-junit-platform-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\common-java5\3.2.5\common-java5-3.2.5.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-launcher\1.11.0\junit-platform-launcher-1.11.0.jar
 PATH=C:\flutter\bin\cache\dart-sdk\bin\;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\bin;C:\flutter\bin;C:\Users\Admin\AppData\Roaming\npm;C:\Program Files\apache-maven-3.9.11\bin;c:\Users\Admin\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand
 USERNAME=Admin
 LANG=en_US.UTF-8
@@ -246,17 +246,17 @@ Periodic native trim disabled
 
 OS:
  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
-OS uptime: 0 days 12:51 hours
+OS uptime: 0 days 3:43 hours
 Hyper-V role detected
 
 CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 126 stepping 5 microcode 0xa0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, avx512_vbmi2, avx512_vbmi, hv, rdtscp, rdpid, fsrm, gfni, avx512_bitalg, f16c, avx512_ifma
 Processor Information for the first 4 processors :
   Max Mhz: 1190, Current Mhz: 1190, Mhz Limit: 1190
 
-Memory: 4k page, system-wide physical 3835M (120M free)
-TotalPageFile size 5210M (AvailPageFile size 2M)
+Memory: 4k page, system-wide physical 3835M (208M free)
+TotalPageFile size 5210M (AvailPageFile size 33M)
 current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
-current process commit charge ("private bytes"): 112M, peak: 112M
+current process commit charge ("private bytes"): 52M, peak: 111M
 
 vm_info: Java HotSpot(TM) 64-Bit Server VM (25+37-LTS-3491) for windows-amd64 JRE (25+37-LTS-3491), built on 2025-08-14T21:13:00Z with unknown MS VC++:1943
 

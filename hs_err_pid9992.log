@@ -18,7 +18,7 @@
 #     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
 # This output file may be truncated or incomplete.
 #
-#  Out of Memory Error (os_windows.cpp:3554), pid=5276, tid=6768
+#  Out of Memory Error (os_windows.cpp:3554), pid=9992, tid=9048
 #
 # JRE version:  (25.0+37) (build )
 # Java VM: Java HotSpot(TM) 64-Bit Server VM (25+37-LTS-3491, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
@@ -27,16 +27,16 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: org.apache.maven.surefire.booter.ForkedBooter C:\Users\Admin\AppData\Local\Temp\surefire18284851626398243955 2025-12-01T13-00-33_595-jvmRun1 surefire-20251201130033811_1tmp surefire_0-20251201130033811_2tmp
+Command Line: --enable-native-access=ALL-UNNAMED 
 
 Host: Intel(R) Core(TM) i3-1005G1 CPU @ 1.20GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
-Time: Mon Dec  1 13:00:33 2025 GMT Standard Time elapsed time: 0.014994 seconds (0d 0h 0m 0s)
+Time: Mon Dec  1 13:15:55 2025 GMT Standard Time elapsed time: 0.039241 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x000001c302f1fba0):  JavaThread "Unknown thread" [_thread_in_vm, id=6768, stack(0x0000000cfc100000,0x0000000cfc200000) (1024K)]
+Current thread (0x000002162438d600):  JavaThread "Unknown thread" [_thread_in_vm, id=9048, stack(0x0000001e0f500000,0x0000001e0f600000) (1024K)]
 
-Stack: [0x0000000cfc100000,0x0000000cfc200000]
+Stack: [0x0000001e0f500000,0x0000001e0f600000]
 Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
 V  [jvm.dll+0x7a6a39]  (no source info available)
 V  [jvm.dll+0x7727ed]  (no source info available)
@@ -75,15 +75,15 @@ Java Threads: ( => current thread )
 Total: 0
 
 Other Threads:
-  0x000001c30516aaa0 WorkerThread "GC Thread#0"                     [id=8240, stack(0x0000000cfc200000,0x0000000cfc300000) (1024K)]
-  0x000001c3051770f0 ConcurrentGCThread "G1 Main Marker"            [id=5984, stack(0x0000000cfc300000,0x0000000cfc400000) (1024K)]
-  0x000001c305179ca0 WorkerThread "G1 Conc#0"                       [id=4744, stack(0x0000000cfc400000,0x0000000cfc500000) (1024K)]
+  0x00000216265ea370 WorkerThread "GC Thread#0"                     [id=5892, stack(0x0000001e0f600000,0x0000001e0f700000) (1024K)]
+  0x00000216265f6840 ConcurrentGCThread "G1 Main Marker"            [id=1356, stack(0x0000001e0f700000,0x0000001e0f800000) (1024K)]
+  0x00000216265f7560 WorkerThread "G1 Conc#0"                       [id=7264, stack(0x0000001e0f800000,0x0000001e0f900000) (1024K)]
 
 [error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa275f4c2a]
 VM state: not at safepoint (not fully initialized)
 
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
-[0x00007ffa27f99628] Heap_lock - owner thread: 0x000001c302f1fba0
+[0x00007ffa27f99628] Heap_lock - owner thread: 0x000002162438d600
 
 Heap address: 0x00000000c4000000, size: 960 MB, Compressed Oops mode: 32-bit
 
@@ -106,10 +106,10 @@ Heap:
 
 Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
 
-Card table byte_map: [0x000001c31c9c0000,0x000001c31cba0000] _byte_map_base: 0x000001c31c3a0000
+Card table byte_map: [0x000002163e020000,0x000002163e200000] _byte_map_base: 0x000002163da00000
 
-Marking Bits: (CMBitMap*) 0x000001c30516b230
- Bits: [0x000001c31cba0000, 0x000001c31daa0000)
+Marking Bits: (CMBitMap*) 0x00000216265eab00
+ Bits: [0x000002163e200000, 0x000002163f100000)
 
 GC Heap Usage History (0 events):
 No events
@@ -118,7 +118,7 @@ Metaspace Usage History (0 events):
 No events
 
 Dll operation events (1 events):
-Event: 0.011 Loaded shared library C:\Program Files\Java\jdk-25\bin\java.dll
+Event: 0.010 Loaded shared library C:\Program Files\Java\jdk-25\bin\java.dll
 
 Deoptimization events (0 events):
 No events
@@ -154,18 +154,18 @@ Dynamic libraries:
 0x00007ffa611f0000 - 0x00007ffa612b2000 	C:\Windows\System32\KERNEL32.DLL
 0x00007ffa5f4b0000 - 0x00007ffa5f7a6000 	C:\Windows\System32\KERNELBASE.dll
 0x00007ffa5f8c0000 - 0x00007ffa5f9c0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffa559c0000 - 0x00007ffa559de000 	C:\Program Files\Java\jdk-25\bin\VCRUNTIME140.dll
 0x00007ffa52760000 - 0x00007ffa52777000 	C:\Program Files\Java\jdk-25\bin\jli.dll
 0x00007ffa60d30000 - 0x00007ffa60ecd000 	C:\Windows\System32\USER32.dll
+0x00007ffa48020000 - 0x00007ffa482ba000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7\COMCTL32.dll
 0x00007ffa5f210000 - 0x00007ffa5f232000 	C:\Windows\System32\win32u.dll
+0x00007ffa608c0000 - 0x00007ffa6095e000 	C:\Windows\System32\msvcrt.dll
 0x00007ffa61960000 - 0x00007ffa6198b000 	C:\Windows\System32\GDI32.dll
 0x00007ffa5f2e0000 - 0x00007ffa5f3f9000 	C:\Windows\System32\gdi32full.dll
 0x00007ffa5f240000 - 0x00007ffa5f2dd000 	C:\Windows\System32\msvcp_win.dll
-0x00007ffa559c0000 - 0x00007ffa559de000 	C:\Program Files\Java\jdk-25\bin\VCRUNTIME140.dll
-0x00007ffa48020000 - 0x00007ffa482ba000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7\COMCTL32.dll
-0x00007ffa608c0000 - 0x00007ffa6095e000 	C:\Windows\System32\msvcrt.dll
 0x00007ffa60bd0000 - 0x00007ffa60bff000 	C:\Windows\System32\IMM32.DLL
 0x00007ffa5a760000 - 0x00007ffa5a76c000 	C:\Program Files\Java\jdk-25\bin\vcruntime140_1.dll
-0x00007ffa36310000 - 0x00007ffa3639d000 	C:\Program Files\Java\jdk-25\bin\msvcp140.dll
+0x00007ffa41e60000 - 0x00007ffa41eed000 	C:\Program Files\Java\jdk-25\bin\msvcp140.dll
 0x00007ffa27220000 - 0x00007ffa2807f000 	C:\Program Files\Java\jdk-25\bin\server\jvm.dll
 0x00007ffa61030000 - 0x00007ffa610e1000 	C:\Windows\System32\ADVAPI32.dll
 0x00007ffa60f80000 - 0x00007ffa6101f000 	C:\Windows\System32\sechost.dll
@@ -192,8 +192,9 @@ dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
 symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-25\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7;C:\Program Files\Java\jdk-25\bin\server
 
 VM Arguments:
-java_command: org.apache.maven.surefire.booter.ForkedBooter C:\Users\Admin\AppData\Local\Temp\surefire18284851626398243955 2025-12-01T13-00-33_595-jvmRun1 surefire-20251201130033811_1tmp surefire_0-20251201130033811_2tmp
-java_class_path (initial): C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-booter\3.2.5\surefire-booter-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-api\3.2.5\surefire-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.2.5\surefire-logger-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.2.5\surefire-shared-utils-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.2.5\surefire-extensions-spi-3.2.5.jar;C:\Users\Admin\Desktop\devops\my-app\target\test-classes;C:\Users\Admin\Desktop\devops\my-app\target\classes;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\Admin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\Admin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\Admin\.m2\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;C:\Users\Admin\.m2\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-junit-platform\3.2.5\surefire-junit-platform-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\common-java5\3.2.5\common-java5-3.2.5.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-launcher\1.11.0\junit-platform-launcher-1.11.0.jar
+jvm_args: --enable-native-access=ALL-UNNAMED 
+java_command: <unknown>
+java_class_path (initial): <not set>
 Launcher Type: SUN_STANDARD
 
 [Global flags]
@@ -226,7 +227,6 @@ Release file:
 <release file has not been read>
 Environment Variables:
 JAVA_HOME=C:\Program Files\Java\jdk-25
-CLASSPATH=C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-booter\3.2.5\surefire-booter-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-api\3.2.5\surefire-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.2.5\surefire-logger-api-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.2.5\surefire-shared-utils-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.2.5\surefire-extensions-spi-3.2.5.jar;C:\Users\Admin\Desktop\devops\my-app\target\test-classes;C:\Users\Admin\Desktop\devops\my-app\target\classes;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\Admin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\Admin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\Admin\.m2\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;C:\Users\Admin\.m2\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\surefire-junit-platform\3.2.5\surefire-junit-platform-3.2.5.jar;C:\Users\Admin\.m2\repository\org\apache\maven\surefire\common-java5\3.2.5\common-java5-3.2.5.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-launcher\1.11.0\junit-platform-launcher-1.11.0.jar
 PATH=C:\flutter\bin\cache\dart-sdk\bin\;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\bin;C:\flutter\bin;C:\Users\Admin\AppData\Roaming\npm;C:\Program Files\apache-maven-3.9.11\bin;c:\Users\Admin\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\Admin\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand
 USERNAME=Admin
 LANG=en_US.UTF-8
@@ -246,15 +246,15 @@ Periodic native trim disabled
 
 OS:
  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
-OS uptime: 0 days 3:28 hours
+OS uptime: 0 days 3:43 hours
 Hyper-V role detected
 
 CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 126 stepping 5 microcode 0xa0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, avx512_vbmi2, avx512_vbmi, hv, rdtscp, rdpid, fsrm, gfni, avx512_bitalg, f16c, avx512_ifma
 Processor Information for the first 4 processors :
   Max Mhz: 1190, Current Mhz: 1190, Mhz Limit: 1190
 
-Memory: 4k page, system-wide physical 3835M (224M free)
-TotalPageFile size 5210M (AvailPageFile size 54M)
+Memory: 4k page, system-wide physical 3835M (204M free)
+TotalPageFile size 5210M (AvailPageFile size 34M)
 current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
 current process commit charge ("private bytes"): 52M, peak: 111M
 

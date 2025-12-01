@@ -8,5 +8,6 @@
     <p>Version: 1.0-SNAPSHOT</p>
     <p>Auteur: Amin Mahjoubi</p>
     <p>Date: <%= new java.util.Date() %></p>
+    <p>aujourdhi</p>
 </body>
 </html>
